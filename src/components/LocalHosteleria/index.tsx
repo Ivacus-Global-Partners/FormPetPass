@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Checkbox, FormControlLabel, FormGroup, Grid, Theme, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles'
 
@@ -24,6 +24,24 @@ const useStyles = makeStyles((theme: Theme) => ({
 const LocalHosteleria = () => {
     const classes = useStyles();
 
+    const [local, setLocal] = useState({
+        terraza: false,
+        areaEspecial: false,
+        todasLasAreas: false,
+        maniana: false,
+        comida: false,
+        tarde: false,
+        todoElDia: false
+    });
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {  
+        const { name, checked } = event.target;
+        setLocal((prevData) => ({ ...prevData, [name]: checked }));
+    };
+
+    console.log("local", local);
+    
+
     return (
         <div className={classes.container}>
             <form onSubmit={() => { }}>
@@ -31,18 +49,18 @@ const LocalHosteleria = () => {
                     <Grid item xs={12} md={6}>
                         <Typography variant="h6" style={{ marginTop: '5%' }}><b>6. Áreas Designadas</b></Typography>
                         <FormGroup>
-                            <FormControlLabel control={<Checkbox />} label="Terraza exterior" />
-                            <FormControlLabel control={<Checkbox />} label="Área especial dentro del restaurante" />
-                            <FormControlLabel control={<Checkbox />} label="Todas las áreas (con algunas restricciones)" />
+                            <FormControlLabel control={<Checkbox name='terraza' onChange={handleChange}/>} label="Terraza exterior" />
+                            <FormControlLabel control={<Checkbox name='areaEspecial' onChange={handleChange}/>} label="Área especial dentro del restaurante" />
+                            <FormControlLabel control={<Checkbox name='todasLasAreas' onChange={handleChange}/>} label="Todas las áreas (con algunas restricciones)" />
                         </FormGroup>
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Typography variant="h6" style={{ marginTop: '5%' }}><b>7. Horario</b></Typography>
                         <FormGroup>
-                            <FormControlLabel control={<Checkbox />} label="Mañana: 6:00 AM - 13:00 PM" />
-                            <FormControlLabel control={<Checkbox />} label="Comida: 13:00 PM - 17:00 PM" />
-                            <FormControlLabel control={<Checkbox />} label="Tarde: 17:00 PM - 20:00" />
-                            <FormControlLabel control={<Checkbox />} label="Todo el día" />
+                            <FormControlLabel control={<Checkbox name='maniana' onChange={handleChange} />} label="Mañana: 6:00 AM - 13:00 PM" />
+                            <FormControlLabel control={<Checkbox name='comida' onChange={handleChange} />} label="Comida: 13:00 PM - 17:00 PM" />
+                            <FormControlLabel control={<Checkbox name='tarde' onChange={handleChange} />} label="Tarde: 17:00 PM - 20:00" />
+                            <FormControlLabel control={<Checkbox name='todoElDia' onChange={handleChange} />} label="Todo el día" />
                         </FormGroup>
                     </Grid>
                 </Grid>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
 import { Checkbox, FormControlLabel, FormGroup, Grid, Theme, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles'
+import usePetsOwnerDataChange from '../../hooks/usePetsOwnerDataChange';
 
 const useStyles = makeStyles((theme: Theme) => ({
     container: {
@@ -24,34 +24,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 const PetsOwner = () => {
     const classes = useStyles();
 
-    const [responsabilidad, setResponsabilidad] = useState({
-        conducta: false,
-        limpiar: false,
-        areas: false
-    });
-
-    const [requisitos, setRequisitos] = useState({
-        correa: false,
-        agresividad: false
-    });
-    
-    const handleResponsabilidadChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
-        const { name } = event.target;
-
-        setResponsabilidad((prevResponsabilidad) => ({
-            ...prevResponsabilidad,
-            [name]: checked
-        }));
-    };
-
-    const handleRequisitosChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
-        const { name } = event.target;
-
-        setRequisitos((prevRequisitos) => ({
-            ...prevRequisitos,
-            [name]: checked
-        }));
-    };
+    const { 
+        responsabilidad, 
+        requisitos, 
+        handleRequisitosChange,
+        handleResponsabilidadChange 
+    } = usePetsOwnerDataChange();  
 
     console.log("responsabilidad", responsabilidad);    
     console.log("requisitos", requisitos);
