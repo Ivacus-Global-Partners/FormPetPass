@@ -15,7 +15,7 @@ const steps = [
   'Paso 5 (Aviso Legal)'
 ];
 
-const FormPets: React.FC = () => {
+const FormPetsPopUp: React.FC = () => {
 
   const [activeStep, setActiveStep] = useState(0);
   const [openModal, setOpenModal] = useState(false);
@@ -63,4 +63,4 @@ const FormPets: React.FC = () => {
   )
 }
 
-export default FormPets;
+export default FormPetsPopUp;

@@ -8,8 +8,9 @@ import usePetsDataChange from '../../hooks/usePetsDataChange';
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
     justifyContent: 'center',
-    marginTop: '2%',
     alignItems: 'center',
+    marginTop: '2%',
+
     [theme.breakpoints.down(850)]: {
       paddingRight: '5%',
     },
@@ -29,24 +30,24 @@ const PetsData: React.FC = () => {
   const classes = useStyles();
 
   const {
-    mascotas,
-    documentacion,
-    tamanioRaza,
+    //mascotas,
+    //documentacion,
+    //tamanioRaza,
     handleDocumentacionChange,
     handleMascotasChange,
     handleTamanioRazaChange
   } = usePetsDataChange();
 
-  const handleSubmit = () => {
-    console.log('Tipo de Mascotas Permitidas:', mascotas);
-    console.log('Documentación y Salud:', documentacion);
-    console.log('Tamaño y Raza:', tamanioRaza);
-  };
+  // const handleSubmit = () => {
+  //   console.log('Tipo de Mascotas Permitidas:', mascotas);
+  //   console.log('Documentación y Salud:', documentacion);
+  //   console.log('Tamaño y Raza:', tamanioRaza);
+  // };
 
   return (
     <div className={classes.container}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Typography variant="h6" style={{ marginTop: '5%' }}><b>1. Tipo de Mascotas Permitidas</b></Typography>
           <FormGroup>
             <FormControlLabel control={<Checkbox name="perros" onChange={handleMascotasChange} />} label="Perros" />
@@ -62,26 +63,27 @@ const PetsData: React.FC = () => {
             ></TextField>
           </FormGroup>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Typography variant="h6" style={{ marginTop: '5%' }}><b>2. Documentación y Salud</b></Typography>
           <FormGroup>
             <FormControlLabel control={<Checkbox onChange={handleDocumentacionChange} name='vacunas' />} label="La mascota debe tener todas las vacunas al día." />
             <FormControlLabel control={<Checkbox onChange={handleDocumentacionChange} name='seguroResponsabilidad' />} label="La mascota debe el seguro de Responsabilidad al dia." />
           </FormGroup>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <Typography variant="h6" style={{ marginTop: '5%' }}><b>3. Tamaño y Raza</b></Typography>
+        <Grid container item xs={12} md={12}>
+          <Typography variant="h6"><b>3. Tamaño y Raza</b></Typography>
           <FormGroup>
-            <FormControlLabel control={<Checkbox onChange={handleTamanioRazaChange} name='mini' />} label="Petpass Mini con tamaño muy pequeño y peso hasta 4kg. (Chihuahua, Yorkshire, etc.)" />
-            <FormControlLabel style={{ marginTop: '2%' }} control={<Checkbox onChange={handleTamanioRazaChange} name='s' />} label="Petpass S: Perros con tamaño pequeño y peso hasta 10 kg. (Carlino, Fox Terrier, etc.)" />
-            <FormControlLabel style={{ marginTop: '2%' }} control={<Checkbox onChange={handleTamanioRazaChange} name='m' />} label="Petpass M: Perros con tamaño mediano y peso hasta 25kg. (Beagle, Bulldog, etc.)" />
-            <FormControlLabel style={{ marginTop: '2%' }} control={<Checkbox onChange={handleTamanioRazaChange} name='l' />} label="Petpass L:Perros con tamaño grande y peso hasta 44kg. (Labrador, Pastor Alemán, etc.)" />
-            <FormControlLabel style={{ marginTop: '2%' }} control={<Checkbox onChange={handleTamanioRazaChange} name='xl' />} label="Petpass XL: Perros con tamaño muy grande y peso más de 44kg. (Mastín, Gran danés, etc.)" />
-            <FormControlLabel style={{ marginTop: '2%' }} control={<Checkbox onChange={handleTamanioRazaChange} name='razasNoPPT' />} label="Razas No PPT ( listado razas)" />
+            <Grid item xs={6}>
+              <FormControlLabel control={<Checkbox onChange={handleTamanioRazaChange} name='mini' />} label="Petpass Mini con tamaño muy pequeño y peso hasta 4kg. (Chihuahua, Yorkshire, etc.)" />
+              <FormControlLabel style={{ marginTop: '2%' }} control={<Checkbox onChange={handleTamanioRazaChange} name='s' />} label="Petpass S: Perros con tamaño pequeño y peso hasta 10 kg. (Carlino, Fox Terrier, etc.)" />
+              <FormControlLabel style={{ marginTop: '2%' }} control={<Checkbox onChange={handleTamanioRazaChange} name='m' />} label="Petpass M: Perros con tamaño mediano y peso hasta 25kg. (Beagle, Bulldog, etc.)" />
+            </Grid>
+            <Grid item xs={6}>
+              <FormControlLabel control={<Checkbox onChange={handleTamanioRazaChange} name='l' />} label="Petpass L:Perros con tamaño grande y peso hasta 44kg. (Labrador, Pastor Alemán, etc.)" />
+              <FormControlLabel style={{ marginTop: '2%' }} control={<Checkbox onChange={handleTamanioRazaChange} name='xl' />} label="Petpass XL: Perros con tamaño muy grande y peso más de 44kg. (Mastín, Gran danés, etc.)" />
+              <FormControlLabel style={{ marginTop: '2%' }} control={<Checkbox onChange={handleTamanioRazaChange} name='razasNoPPT' />} label="Razas No PPT ( listado razas)" />
+            </Grid>
           </FormGroup>
-        </Grid>
-        <Grid item xs={12}>
-          <button onClick={handleSubmit}>Enviar Formulario</button>
         </Grid>
       </Grid>
     </div>
