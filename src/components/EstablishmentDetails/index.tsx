@@ -48,7 +48,7 @@ const EstablishmentDetails = ({ onChildData }: any) => {
     return (
         <div className={classes.container}>
             <Grid container spacing={2}>
-                <Grid item md={6}>
+                <Grid item xs={12} md={6}>
                     <TextField
                         label="Nombre del restaurante/Bar"
                         variant="outlined"
@@ -58,7 +58,7 @@ const EstablishmentDetails = ({ onChildData }: any) => {
                         name='name'
                     />
                 </Grid>
-                <Grid item md={6}>
+                <Grid item xs={12} md={6}>
                     <TextField
                         label="Direccion del establecimiento"
                         variant="outlined"
@@ -68,7 +68,7 @@ const EstablishmentDetails = ({ onChildData }: any) => {
                         name='address'
                     />
                 </Grid>
-                <Grid item md={3}>
+                <Grid item xs={12} md={3}>
                     <FormControl fullWidth margin="normal">
                         <TextField
                             label="Fecha de Implementación"
@@ -86,7 +86,7 @@ const EstablishmentDetails = ({ onChildData }: any) => {
                         />
                     </FormControl>
                 </Grid>
-                <Grid item md={3}>
+                <Grid item xs={12} md={3}>
                     <TextField
                         label="Telefono del establecimiento"
                         variant="outlined"
@@ -96,7 +96,7 @@ const EstablishmentDetails = ({ onChildData }: any) => {
                         name='phone'
                     />
                 </Grid>
-                <Grid item md={3}>
+                <Grid item xs={12} md={3}>
                     <TextField
                         label="Email del establecimiento"
                         variant="outlined"
@@ -106,7 +106,7 @@ const EstablishmentDetails = ({ onChildData }: any) => {
                         name='email'
                     />
                 </Grid>
-                <Grid item md={3}>
+                <Grid item xs={12} md={3}>
                     <TextField
                         label="CIF/NUIF:"
                         variant="outlined"

@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
-import { Button, Container, Stepper, Step, StepLabel, Typography } from '@mui/material';
+import { Button, Container, Stepper, Step, StepLabel, Typography, Theme, useMediaQuery, useTheme } from '@mui/material';
 import EstablishmentDetails from '../components/EstablishmentDetails';
 import PetsData from '../components/PetsData';
 import PetsOwner from '../components/PetsOwners';
 import LocalHosteleria from '../components/LocalHosteleria';
 import Disclaimer from '../components/Disclaimer';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles((theme: Theme) => ({
+  stepLabel: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.8rem', // Ajusta el tamaño de la fuente para dispositivos móviles
+    },
+  },
+}));
 
 const steps = [
   'Establecimiento',
@@ -15,6 +24,9 @@ const steps = [
 ];
 
 const FormPetsStepper: React.FC = () => {
+  const classes = useStyles();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -37,22 +49,22 @@ const FormPetsStepper: React.FC = () => {
       case 1:
         return <PetsData onChildData={onChildData} />;
       case 2:
-        return <PetsOwner onChildData={onChildData}/>;
+        return <PetsOwner onChildData={onChildData} />;
       case 3:
-        return <LocalHosteleria onChildData={onChildData}/>;
+        return <LocalHosteleria onChildData={onChildData} />;
       case 4:
         return <Disclaimer />;
       default:
         return null;
     }
   };
-  
+
   return (
     <Container style={{ position: 'relative' }}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+      <Stepper orientation="horizontal" activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
-            <StepLabel>{label}</StepLabel>
+            <StepLabel className={classes.stepLabel}>{(isMobile) ? '' : label}</StepLabel>
           </Step>
         ))}
       </Stepper>
@@ -63,7 +75,7 @@ const FormPetsStepper: React.FC = () => {
           </div>
         ) : (
           <div>
-            {getStepContent(activeStep, handleChildData) }
+            {getStepContent(activeStep, handleChildData)}
             <div style={{ position: 'fixed', bottom: 0, right: 0, textAlign: 'right', padding: '16px' }}>
               <Button disabled={activeStep === 0} onClick={handleBack} style={{ marginRight: '8px' }}>
                 Atrás

@@ -3,15 +3,6 @@ import { Theme, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) => ({
-    Titulo: {
-        textAlign: 'left',
-    },
-    logo: {
-        width: '30%',
-        height: '30%',
-        display: 'flex',
-        marginBottom: '2%'
-    },
     bienvenida: {
         textAlign: 'justify',
         marginBottom: '2%',
@@ -19,14 +10,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: '2%',
-        [theme.breakpoints.down(850)]: {
-            paddingRight: '5%',
-        },
         [theme.breakpoints.down('sm')]: {
-            flexDirection: 'column',
-            paddingLeft: '2',
-            paddingRight: '2',
+            marginTop: '15%',
         },
     },
 }))
