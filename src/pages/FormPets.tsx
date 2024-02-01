@@ -40,7 +40,6 @@ const FormPets: React.FC = () => {
     <>
       <Container>
         <Welcome handleOpenModal={handleOpenModal} />
-
         <Dialog open={openModal} onClose={handleCloseModal} maxWidth="md">
           <DialogTitle>{steps[activeStep]}</DialogTitle>
           <DialogContent>
@@ -51,10 +50,10 @@ const FormPets: React.FC = () => {
             {activeStep === 4 && <Disclaimer />}
           </DialogContent>
           <DialogActions>
-            <Button disabled={activeStep === 0} onClick={handleBack}>
+            <Button disabled={activeStep === 0} color='secondary' onClick={handleBack}>
               Atrás
             </Button>
-            <Button variant="contained" color="primary" onClick={handleNext}>
+            <Button variant="contained" color="success" onClick={handleNext}>
               {activeStep === steps.length - 1 ? 'Finalizar' : 'Siguiente'}
             </Button>
           </DialogActions>

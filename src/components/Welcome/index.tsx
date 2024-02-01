@@ -45,9 +45,9 @@ const Welcome = ({ handleOpenModal }: { handleOpenModal: React.MouseEventHandler
                     <img src={LogoPet} alt="Logo Pet" className={classes.logo} />
                 </Grid>
                 <Grid item xs={12}>
-                    <div style={{ textAlign: 'center'}}>
-                    <Typography variant='h3'>Nombre del restaurante/Bar</Typography>
-                        <Button variant="contained" color="primary" onClick={handleOpenModal}>
+                    <div style={{ textAlign: 'center' }}>
+                        <Typography variant='h3'>Nombre del restaurante/Bar</Typography>
+                        <Button variant="contained" color="secondary" style={{ marginTop: '2%' }} onClick={handleOpenModal}>
                             Iniciar Stepper
                         </Button>
                     </div>

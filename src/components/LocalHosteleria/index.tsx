@@ -29,7 +29,7 @@ const LocalHosteleria = () => {
             <form onSubmit={() => { }}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
-                        <Typography variant="h6" style={{ marginTop: '5%' }}>6. Áreas Designadas</Typography>
+                        <Typography variant="h6" style={{ marginTop: '5%' }}><b>6. Áreas Designadas</b></Typography>
                         <FormGroup>
                             <FormControlLabel control={<Checkbox />} label="Terraza exterior" />
                             <FormControlLabel control={<Checkbox />} label="Área especial dentro del restaurante" />
@@ -37,7 +37,7 @@ const LocalHosteleria = () => {
                         </FormGroup>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <Typography variant="h6" style={{ marginTop: '5%' }}>7. Horario</Typography>
+                        <Typography variant="h6" style={{ marginTop: '5%' }}><b>7. Horario</b></Typography>
                         <FormGroup>
                             <FormControlLabel control={<Checkbox />} label="Mañana: 6:00 AM - 13:00 PM" />
                             <FormControlLabel control={<Checkbox />} label="Comida: 13:00 PM - 17:00 PM" />

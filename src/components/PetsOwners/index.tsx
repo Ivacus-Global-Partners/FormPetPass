@@ -29,7 +29,7 @@ const PetsOwner = () => {
             <form onSubmit={() => { }}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
-                        <Typography variant="h6" style={{ marginTop: '5%' }}>4. Responsabilidad el Dueño</Typography>
+                        <Typography variant="h6" style={{ marginTop: '5%' }}><b>4. Responsabilidad el Dueño</b></Typography>
                         <FormGroup>
                             <FormControlLabel control={<Checkbox />} label="El dueño entiende que es completamente responsable de la conducta de su mascota mientras esté en las instalaciones de [Nombre del Restaurante]." />
                             <FormControlLabel control={<Checkbox />} label="El dueño  acepto limpiar cualquier desecho que mi mascota genere." />
@@ -37,7 +37,7 @@ const PetsOwner = () => {
                         </FormGroup>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <Typography variant="h6" style={{ marginTop: '5%' }}>5. Requisitos de Comportamiento</Typography>
+                        <Typography variant="h6" style={{ marginTop: '5%' }}><b>5. Requisitos de Comportamiento</b></Typography>
                         <FormGroup>
                             <FormControlLabel control={<Checkbox />} label="La mascota debe estar en todo momento con correa y controlada." />
                             <FormControlLabel control={<Checkbox />} label="La mascota no debe mostrar signos de agresividad hacia otras mascotas o clientes." />
