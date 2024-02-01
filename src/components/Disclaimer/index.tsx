@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: '5%',
         [theme.breakpoints.down('sm')]: {
             marginTop: '15%',
         },
