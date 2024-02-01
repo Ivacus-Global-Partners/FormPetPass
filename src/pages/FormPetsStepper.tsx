@@ -25,23 +25,28 @@ const FormPetsStepper: React.FC = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const getStepContent = (step: number) => {
+  const handleChildData = (childData: any) => {
+    // Guardar en un estado para la petición a BD
+    console.log('Datos del componente hijo:', childData);
+  };
+
+  const getStepContent = (step: number, onChildData: (childData: any) => void) => {
     switch (step) {
       case 0:
-        return <EstablishmentDetails />;
+        return <EstablishmentDetails onChildData={onChildData} />;
       case 1:
-        return <PetsData />;
+        return <PetsData onChildData={onChildData} />;
       case 2:
-        return <PetsOwner />;
+        return <PetsOwner onChildData={onChildData}/>;
       case 3:
-        return <LocalHosteleria />;
+        return <LocalHosteleria onChildData={onChildData}/>;
       case 4:
         return <Disclaimer />;
       default:
         return null;
     }
   };
-
+  
   return (
     <Container style={{ position: 'relative' }}>
       <Stepper activeStep={activeStep} alternativeLabel>
@@ -58,7 +63,7 @@ const FormPetsStepper: React.FC = () => {
           </div>
         ) : (
           <div>
-            {getStepContent(activeStep)}
+            {getStepContent(activeStep, handleChildData) }
             <div style={{ position: 'fixed', bottom: 0, right: 0, textAlign: 'right', padding: '16px' }}>
               <Button disabled={activeStep === 0} onClick={handleBack} style={{ marginRight: '8px' }}>
                 Atrás

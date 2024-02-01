@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Checkbox, FormControlLabel, FormGroup, Grid, TextField, Theme, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles'
-import React from 'react'
+import React, { useEffect } from 'react'
 import usePetsDataChange from '../../hooks/usePetsDataChange';
 
 
@@ -26,23 +26,22 @@ const useStyles = makeStyles((theme: Theme) => ({
 }))
 
 
-const PetsData: React.FC = () => {
+const PetsData = ({ onChildData }: any) => {
   const classes = useStyles();
 
   const {
-    //mascotas,
-    //documentacion,
-    //tamanioRaza,
+    mascotas,
+    documentacion,
+    tamanioRaza,
     handleDocumentacionChange,
     handleMascotasChange,
     handleTamanioRazaChange
   } = usePetsDataChange();
 
-  // const handleSubmit = () => {
-  //   console.log('Tipo de Mascotas Permitidas:', mascotas);
-  //   console.log('Documentación y Salud:', documentacion);
-  //   console.log('Tamaño y Raza:', tamanioRaza);
-  // };
+  useEffect(() => {
+    onChildData({ mascotas, documentacion, tamanioRaza });
+  }, [ mascotas, documentacion, tamanioRaza, onChildData])
+  
 
   return (
     <div className={classes.container}>

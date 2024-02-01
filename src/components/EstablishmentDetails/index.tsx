@@ -2,7 +2,7 @@ import { Theme, Typography, TextField, Grid, FormControl, InputAdornment } from 
 import { makeStyles } from '@mui/styles';
 import EventIcon from '@mui/icons-material/Event';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const useStyles = makeStyles((theme: Theme) => ({
     bienvenida: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 }));
 
-const EstablishmentDetails = () => {
+const EstablishmentDetails = ({ onChildData }: any) => {
 
     const classes = useStyles();
     const [formData, setFormData] = useState({
@@ -33,6 +33,7 @@ const EstablishmentDetails = () => {
         phone: '',
         address: '',
         date: '',
+        CIF: ''
     });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,13 +41,10 @@ const EstablishmentDetails = () => {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
-    console.log("Nombre: ", formData.name);
-    console.log("Email: ", formData.email);
-    console.log("Telefono: ", formData.phone);
-    console.log("Direccion: ", formData.address);
-    console.log("Fecha: ", formData.date);
-
-
+    useEffect(() => {
+        onChildData(formData);
+    }, [formData, onChildData])
+    
     return (
         <div className={classes.container}>
             <Grid container spacing={2}>
@@ -70,7 +68,7 @@ const EstablishmentDetails = () => {
                         name='address'
                     />
                 </Grid>
-                <Grid item md={4}>
+                <Grid item md={3}>
                     <FormControl fullWidth margin="normal">
                         <TextField
                             label="Fecha de Implementación"
@@ -88,7 +86,7 @@ const EstablishmentDetails = () => {
                         />
                     </FormControl>
                 </Grid>
-                <Grid item md={4}>
+                <Grid item md={3}>
                     <TextField
                         label="Telefono del establecimiento"
                         variant="outlined"
@@ -98,7 +96,7 @@ const EstablishmentDetails = () => {
                         name='phone'
                     />
                 </Grid>
-                <Grid item md={4}>
+                <Grid item md={3}>
                     <TextField
                         label="Email del establecimiento"
                         variant="outlined"
@@ -106,6 +104,16 @@ const EstablishmentDetails = () => {
                         margin="normal"
                         onChange={handleChange}
                         name='email'
+                    />
+                </Grid>
+                <Grid item md={3}>
+                    <TextField
+                        label="CIF/NUIF:"
+                        variant="outlined"
+                        fullWidth
+                        margin="normal"
+                        onChange={handleChange}
+                        name='CIF:'
                     />
                 </Grid>
                 <Grid item xs={12}>

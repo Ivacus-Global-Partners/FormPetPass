@@ -1,6 +1,7 @@
 import { Checkbox, FormControlLabel, FormGroup, Grid, Theme, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles'
 import usePetsOwnerDataChange from '../../hooks/usePetsOwnerDataChange';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles((theme: Theme) => ({
     container: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
 }))
 
-const PetsOwner = () => {
+const PetsOwner = ({ onChildData }: any) => {
     const classes = useStyles();
 
     const { 
@@ -31,8 +32,9 @@ const PetsOwner = () => {
         handleResponsabilidadChange 
     } = usePetsOwnerDataChange();  
 
-    console.log("responsabilidad", responsabilidad);    
-    console.log("requisitos", requisitos);
+    useEffect(() => {
+        onChildData({ responsabilidad, requisitos });
+    }, [ responsabilidad, requisitos, onChildData])
     
 
     return (

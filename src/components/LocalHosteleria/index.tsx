@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Checkbox, FormControlLabel, FormGroup, Grid, Theme, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles'
 
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     }
 }))
 
-const LocalHosteleria = () => {
+const LocalHosteleria = ({ onChildData }: any) => {
     const classes = useStyles();
 
     const [local, setLocal] = useState({
@@ -39,7 +39,10 @@ const LocalHosteleria = () => {
         setLocal((prevData) => ({ ...prevData, [name]: checked }));
     };
 
-    console.log("local", local);
+    useEffect(() => {
+        onChildData(local);
+    }, [local, onChildData])
+    
     
 
     return (
