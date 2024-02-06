@@ -1,4 +1,3 @@
-import React from 'react'
 import { Theme, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 

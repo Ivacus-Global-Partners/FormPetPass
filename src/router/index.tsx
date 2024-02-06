@@ -7,8 +7,8 @@ const RouterComponent: React.FC = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/*" element={<FormPetsPopUp />} />
-                <Route path="/stepper" element={<FormPetsStepper />} />
+                <Route path="/*" element={<FormPetsStepper />} />
+                <Route path="/PopUp" element={<FormPetsPopUp />} />
             </Routes>
         </Router>
     );
