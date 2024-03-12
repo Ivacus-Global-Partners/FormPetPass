@@ -43,11 +43,11 @@ const FormPetsPopUp: React.FC = () => {
         <Dialog open={openModal} onClose={handleCloseModal} maxWidth="md">
           <DialogTitle>{steps[activeStep]}</DialogTitle>
           <DialogContent>
-            {activeStep === 0 && <EstablishmentDetails />}
+            {activeStep === 0 && <EstablishmentDetails onChildData={() => { }} setName={() => { }} />}
             {activeStep === 1 && <PetsData />}
             {activeStep === 2 && <PetsOwner />}
             {activeStep === 3 && <LocalHosteleria />}
-            {activeStep === 4 && <Disclaimer />}
+            {activeStep === 4 && <Disclaimer name='' />}
           </DialogContent>
           <DialogActions>
             <Button disabled={activeStep === 0} color='secondary' onClick={handleBack}>
