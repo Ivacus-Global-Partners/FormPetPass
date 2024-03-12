@@ -2,7 +2,7 @@ import { createTheme } from '@mui/material/styles';
 
 const defaultTheme = createTheme({
   typography: {
-    fontFamily: 'times',
+    fontFamily: 'Heebo, sans-serif',
   },
   components: {
     MuiIcon: {
@@ -15,13 +15,13 @@ const defaultTheme = createTheme({
   },
   palette: {
     primary: {
-      main: "#aa1935",
+      main: "#2FAA57",
     },
     secondary: {
-      main: "#000080",
+      main: "#072F41",
     },
     background: {
-      default: "#f6f6f6",
+      default: "#fff",
     }
   },
   breakpoints: {

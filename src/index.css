@@ -2,10 +2,11 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-family: Heebo, sans-serif;
 
 
 
-  background-color: #cecbcb;
+  background-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,4 +21,12 @@ a {
 }
 a:hover {
   color: #535bf2;
+}
+
+@font-face {
+  font-family: 'Fonarto';
+  src: url('../fonts/fonarto.regular.ttf') format('truetype');
+  src: url('../fonts/fonarto.regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

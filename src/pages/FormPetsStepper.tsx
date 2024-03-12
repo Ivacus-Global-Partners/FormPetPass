@@ -28,6 +28,7 @@ const FormPetsStepper: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [activeStep, setActiveStep] = useState(0);
+  const [name, setName] = useState('');
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -45,7 +46,7 @@ const FormPetsStepper: React.FC = () => {
   const getStepContent = (step: number, onChildData: (childData: any) => void) => {
     switch (step) {
       case 0:
-        return <EstablishmentDetails onChildData={onChildData} />;
+        return <EstablishmentDetails setName={setName} onChildData={onChildData} />;
       case 1:
         return <PetsData onChildData={onChildData} />;
       case 2:
@@ -53,7 +54,7 @@ const FormPetsStepper: React.FC = () => {
       case 3:
         return <LocalHosteleria onChildData={onChildData} />;
       case 4:
-        return <Disclaimer />;
+        return <Disclaimer name={name}/>;
       default:
         return null;
     }

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 }));
 
-const EstablishmentDetails = ({ onChildData }: any) => {
+const EstablishmentDetails = ({ onChildData, setName }: { onChildData: any, setName: any }) => {
 
     const classes = useStyles();
     const [formData, setFormData] = useState({
@@ -45,6 +45,10 @@ const EstablishmentDetails = ({ onChildData }: any) => {
         onChildData(formData);
     }, [formData, onChildData])
     
+    useEffect(() => {
+        setName(formData.name);
+    }, [formData, setName])
+
     return (
         <div className={classes.container}>
             <Grid container spacing={2}>
